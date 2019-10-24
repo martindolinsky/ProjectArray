@@ -9,7 +9,8 @@ public class Main {
         MyArray.test2();
         MyArray.test3();
         MyArray.test4();
-        int[] results = MyArray.minmax(4, 2, 3);
+        int[] results = MyArray.minmax(7, 6, 8);
         System.out.println(results[0] + " " + results[1]);
+        MyArray.test6();
     }
 }

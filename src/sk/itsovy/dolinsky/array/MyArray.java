@@ -154,6 +154,15 @@ public class MyArray {
 
 	}
 
+	/**
+	 * Get the minimum and maximum value of given values
+	 * and stores it into array
+	 *
+	 * @param a int number
+	 * @param b int number
+	 * @param c int number
+	 * @return
+	 */
 	public static int[] minmax(int a, int b, int c) {
 		System.out.println();
 
@@ -177,10 +186,33 @@ public class MyArray {
 		if (c >= b && c >= a) {
 			result[1] = c;
 		}
-
-
 		return result;
-
 	}
 
+	/**
+	 * Print first 10 powers of 2
+	 * Set the values of field2 to reversed values of field1
+	 */
+	public static void test6() {
+		System.out.println();
+		int[] field1 = new int[10];
+		int[] field2 = new int[10];
+
+		for (int i = 0; i < 10; i++) {
+			field1[i] = (int) Math.pow(2, i);
+		}
+
+		for (int i = 0; i < 10; i++) {
+			System.out.print(field1[i] + " ");
+		}
+
+		System.out.println();
+		for (int i = 9; i >= 0; i--) {
+			field2[9 - i] = field1[i];
+		}
+
+		for (int i = 0; i < 10; i++) {
+			System.out.print(field2[i] + " ");
+		}
+	}
 }
