@@ -339,7 +339,7 @@ public class MyArray {
 	 * Prints names with the longest size
 	 * Prints names with the shortest size
 	 * Prints array .toUpperCase()
-	 * Prints array
+     * Prints values of array and replace all vowels with "."
 	 */
 	public static void test10() {
 		System.out.println();
