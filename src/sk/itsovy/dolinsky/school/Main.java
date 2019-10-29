@@ -10,5 +10,6 @@ public class Main {
         Student damian = new Student("Damian Matysko", 20, "1.N");
         System.out.println(damian);
 
+
     }
 }

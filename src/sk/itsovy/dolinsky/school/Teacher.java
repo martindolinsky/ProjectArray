@@ -3,7 +3,7 @@ package sk.itsovy.dolinsky.school;
 /**
  * @author Martin Dolinsky
  */
-public class Teacher extends Person {
+public class Teacher extends Person implements Employee {
     private double salary;
 
     public Teacher(String name, int age, double salary) {

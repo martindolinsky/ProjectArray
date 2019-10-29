@@ -3,7 +3,7 @@ package sk.itsovy.dolinsky.school;
 /**
  * @author Martin Dolinsky
  */
-public class Staff extends Person {
+public class Staff extends Person implements Employee {
     private String position;
 
     public Staff(String name, int age, String position) {
@@ -17,5 +17,10 @@ public class Staff extends Person {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    @Override
+    public double getSalary() {
+        return 580;
     }
 }

@@ -12,5 +12,9 @@ public class Main {
         int[] results = MyArray.minmax(7, 6, 8);
         System.out.println(results[0] + " " + results[1]);
         MyArray.test6();
+        MyArray.test7();
+        MyArray.test8();
+        MyArray.test9();
+        MyArray.test10();
     }
 }
