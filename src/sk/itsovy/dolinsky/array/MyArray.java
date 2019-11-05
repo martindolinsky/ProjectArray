@@ -4,6 +4,7 @@ import sk.itsovy.dolinsky.school.Student;
 import sk.itsovy.dolinsky.school.Teacher;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @author Martin Dolinsky
@@ -401,6 +402,111 @@ public class MyArray {
 		}
 
 
+	}
+
+	/**
+	 * Request word via scanner and returns it inverted
+	 */
+	public static void test11() {
+		System.out.println();
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Zadaj slovo: ");
+		String word = sc.nextLine();
+		int length = word.length();
+
+
+		for (int i = length - 1; i >= 0; i--) {
+			System.out.print(word.trim().charAt(i));
+		}
+
+
+	}
+
+	/**
+	 * Creating array and sort it in ascending and descending way
+	 */
+	public static void test12() {
+		System.out.println();
+		int[] a = {17, 0, -2, 13, 68, 103, 21, 55, 1};
+		int n = a.length;
+
+		ascendingSelectionSort(a, n);
+
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
+
+		}
+		System.out.println();
+
+		descendingSelectionSort(a, n);
+
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
+
+		}
+
+	}
+
+
+	/**
+	 * Generate 20 random numbers into an array without repeating and sorting them
+	 */
+	public static void test13() {
+		System.out.println();
+		Random rn = new Random();
+		int[] array1 = new int[20];
+
+		for (int i = 0; i < array1.length; i++) {
+			int count = 0, temp;
+			temp = rn.nextInt(79) + 1;
+			for (int j = 0; j < i; j++) {
+				if (temp == array1[j]) {
+					count = 1;
+				}
+			}
+			if (count == 0)
+				array1[i] = temp;
+			else i--;
+		}
+
+		for (int i = 0; i < array1.length; i++) {
+			System.out.print(array1[i] + " ");
+		}
+
+		System.out.println();
+		int n = array1.length;
+
+		ascendingSelectionSort(array1, n);
+
+		for (int i = 0; i < array1.length; i++) {
+			System.out.print(array1[i] + " ");
+		}
+
+	}
+
+	private static void descendingSelectionSort(int[] a, int n) {
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (a[i] < a[j]) {
+					int temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
+	}
+
+	private static void ascendingSelectionSort(int[] a, int n) {
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (a[i] > a[j]) {
+					int temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
 	}
 
 
