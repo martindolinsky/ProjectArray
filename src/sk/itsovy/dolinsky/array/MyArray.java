@@ -451,11 +451,14 @@ public class MyArray {
 
 	/**
 	 * Generate 20 random numbers into an array without repeating and sorting them
+	 * Selectionsort
+	 * Bubblesort
 	 */
 	public static void test13() {
 		System.out.println();
 		Random rn = new Random();
 		int[] array1 = new int[20];
+
 
 		for (int i = 0; i < array1.length; i++) {
 			int count = 0, temp;
@@ -479,10 +482,79 @@ public class MyArray {
 
 		ascendingSelectionSort(array1, n);
 
+		System.out.println("Selectionsort: ");
 		for (int i = 0; i < array1.length; i++) {
 			System.out.print(array1[i] + " ");
 		}
 
+		ascendingBubbleSort(array1, n);
+
+		System.out.println();
+		System.out.println("Bubblesort: ");
+		for (int i = 0; i < array1.length; i++) {
+			System.out.print(array1[i] + " ");
+
+		}
+	}
+
+	/**
+	 * Sorting names using Selectionsort A-Z and Z-A
+	 */
+	public static void test14() {
+		System.out.println();
+		String[] arr =
+				{"Monika", "Yelizaveta", "Nikoleta", "Denis", "Patrik", "Miroslav", "Vladimir", "Martin", "Ladislav", "Damian", "Peter", "Jakub", "Jakub", "Jakub", "Artem", "Tibor"};
+		int n = arr.length;
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+
+		}
+
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (arr[i].compareToIgnoreCase(arr[j]) > 0) {
+					String temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		System.out.println();
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+
+		}
+
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (arr[i].compareToIgnoreCase(arr[j]) < 0) {
+					String temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		System.out.println();
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+
+		}
+		System.out.println();
+	}
+
+	private static void ascendingSelectionSort(int[] a, int n) {
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (a[i] > a[j]) {
+					int temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
 	}
 
 	private static void descendingSelectionSort(int[] a, int n) {
@@ -497,16 +569,34 @@ public class MyArray {
 		}
 	}
 
-	private static void ascendingSelectionSort(int[] a, int n) {
+	private static void ascendingBubbleSort(int[] a, int n) {
 		for (int i = 0; i < n - 1; i++) {
-			for (int j = i + 1; j < n; j++) {
-				if (a[i] > a[j]) {
-					int temp = a[i];
-					a[i] = a[j];
-					a[j] = temp;
+			for (int j = 0; j < n - 1 - i; j++) {
+				if (a[j] > a[j + 1]) {
+					int temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
 				}
+
 			}
+
 		}
+
+	}
+
+	public static void descendingBubbleSort(int[] a, int n) {
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = 0; j < n - 1 - i; j++) {
+				if (a[j] < a[j + 1]) {
+					int temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
+				}
+
+			}
+
+		}
+
 	}
 
 
