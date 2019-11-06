@@ -16,6 +16,7 @@ public class Main {
         System.out.println(array.max2());
         System.out.println(array.getAverageValue());
         array.addItem(8);
+        System.out.println();
         System.out.println(array.toString());
         System.out.println(array.getItem(2));
         array.sort(false);

@@ -210,11 +210,20 @@ public class MyArray implements ArrayMethods {
 
     @Override
     public void addItem(int newValue) {
+        int[] arr2 = new int[size + 1];
+        System.arraycopy(arr, 0, arr2, 0, size);
+        arr2[size] = newValue;
+        System.out.println("Added item: " + newValue);
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.print(arr2[i] + " ");
+
+        }
 
     }
 
     @Override
     public void addItem(int newValue, int position) {
+
 
     }
 
