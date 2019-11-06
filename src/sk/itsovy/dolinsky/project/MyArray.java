@@ -226,9 +226,9 @@ public class MyArray implements ArrayMethods {
         int[] arr2 = new int[size + 1];
 
         for (int i = 0; i < size + 1; i++) {
-            if (i < position - 1)
+            if (i < position)
                 arr2[i] = arr[i];
-            else if (i == position - 1)
+            else if (i == position)
                 arr2[i] = newValue;
             else
                 arr2[i] = arr[i - 1];
