@@ -15,7 +15,7 @@ public class Main {
         System.out.println(array.max());
         System.out.println(array.max2());
         System.out.println(array.getAverageValue());
-        array.addItem(8);
+        array.addItem(8, 3);
         System.out.println();
         System.out.println(array.toString());
         System.out.println(array.getItem(2));

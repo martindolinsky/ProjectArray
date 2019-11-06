@@ -223,6 +223,22 @@ public class MyArray implements ArrayMethods {
 
     @Override
     public void addItem(int newValue, int position) {
+        int[] arr2 = new int[size + 1];
+
+        for (int i = 0; i < size + 1; i++) {
+            if (i < position - 1)
+                arr2[i] = arr[i];
+            else if (i == position - 1)
+                arr2[i] = newValue;
+            else
+                arr2[i] = arr[i - 1];
+        }
+
+        System.out.println("Added item " + newValue + " to position " + position);
+        for (int i = 0; i < size + 1; i++) {
+            System.out.print(arr2[i] + " ");
+
+        }
 
 
     }
