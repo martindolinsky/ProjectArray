@@ -121,22 +121,26 @@ public class MyArray implements ArrayMethods {
 
     @Override
     public void generateValues(int start, int end, boolean repeating) {
-        Random rn = new Random();
-        if (repeating) {
-            for (int i = 0; i < size; i++) {
-                arr[i] = rn.nextInt(end - start + 1) + start;
-            }
+        if (start > end) {
+            return;
         } else {
-            for (int i = 0; i < size; i++) {
-                int count = 0, temp;
-                temp = rn.nextInt(50) + 1;
-                for (int j = 0; j < i; j++) {
-                    if (temp == arr[j]) {
-                        count = 1;
-                    }
+            Random rn = new Random();
+            if (repeating) {
+                for (int i = 0; i < size; i++) {
+                    arr[i] = rn.nextInt(end - start + 1) + start;
                 }
-                if (count == 0) arr[i] = temp;
-                else i--;
+            } else {
+                for (int i = 0; i < size; i++) {
+                    int count = 0, temp;
+                    temp = rn.nextInt(50) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (temp == arr[j]) {
+                            count = 1;
+                        }
+                    }
+                    if (count == 0) arr[i] = temp;
+                    else i--;
+                }
             }
         }
     }
@@ -183,29 +187,15 @@ public class MyArray implements ArrayMethods {
 
     @Override
     public void sort(boolean ascending) {
-        if (ascending) {
-            for (int i = 0; i < size - 1; i++) {
-                for (int j = i + 1; j < size; j++) {
-                    if (arr[i] > arr[j]) {
-                        int temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
-                    }
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (arr[i] > arr[j] && ascending || (!ascending && arr[i] < arr[j])) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
                 }
             }
-        } else {
-            for (int i = 0; i < size - 1; i++) {
-                for (int j = i + 1; j < size; j++) {
-                    if (arr[i] < arr[j]) {
-                        int temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
-                    }
-                }
-            }
-
         }
-
     }
 
     @Override
@@ -224,23 +214,41 @@ public class MyArray implements ArrayMethods {
     @Override
     public void addItem(int newValue, int position) {
         int[] arr2 = new int[size + 1];
-
-        for (int i = 0; i < size + 1; i++) {
-            if (i < position)
-                arr2[i] = arr[i];
-            else if (i == position)
-                arr2[i] = newValue;
-            else
-                arr2[i] = arr[i - 1];
+        if (position < 0) {
+            return;
         }
+        if (position >= size) {
+            addItem(newValue);
+        } else {
+            int[] newArr = new int[size + 1];
+            for (int i = 0; i < position; i++) {
+                newArr[i] = arr[i];
+            }
+            newArr[position] = newValue;
 
-        System.out.println("Added item " + newValue + " to position " + position);
-        for (int i = 0; i < size + 1; i++) {
-            System.out.print(arr2[i] + " ");
+            for (int i = position; i < size; i++) {
+                newArr[i + 1] = arr[i];
+            }
+            size++;
+            this.arr = newArr;
 
+            /*
+            for (int i = 0; i < size + 1; i++) {
+                if (i < position)
+                    arr2[i] = arr[i];
+                else if (i == position)
+                    arr2[i] = newValue;
+                else
+                    arr2[i] = arr[i - 1];
+            }
+
+            System.out.println("Added item " + newValue + " to position " + position);
+            for (int i = 0; i < size + 1; i++) {
+                System.out.print(arr2[i] + " ");
+
+            }
+            */
         }
-
-
     }
 
     @Override
