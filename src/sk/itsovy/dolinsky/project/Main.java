@@ -10,6 +10,12 @@ public class Main {
 
         array.generateValues(10, 20, false);
         System.out.println(array.toString());
+        array.reverse();
+        System.out.println(array.toString());
+        array.random();
+        System.out.println(array.toString());
+
+
         System.out.println(array.min());
         System.out.println(array.min2());
         System.out.println(array.max());
@@ -20,6 +26,9 @@ public class Main {
         System.out.println(array.toString());
         System.out.println(array.getItem(2));
         array.sort(false);
+        System.out.println(array.toString());
+        System.out.println(array.getSumOfTwoNumbers("1001", "1004"));
+        array.reverse();
         System.out.println(array.toString());
 
 

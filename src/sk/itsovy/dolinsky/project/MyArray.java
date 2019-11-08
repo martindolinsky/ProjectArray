@@ -276,4 +276,65 @@ public class MyArray implements ArrayMethods {
         System.exit(1);
 
     }
+
+    public String getSumOfTwoNumbers(String first, String second) {
+        int temp = 0;
+        if (first.length() > second.length()) {
+            String t = first;
+            first = second;
+            second = t;
+        }
+
+        String str = "";
+        int n1 = first.length();
+        int n2 = second.length();
+
+        first = new StringBuilder(first).reverse().toString();
+        second = new StringBuilder(second).reverse().toString();
+
+        int carry = 0;
+        for (int i = 0; i < n1; i++) {
+            int sum = ((int) (first.charAt(i) - '0') +
+                    (int) (second.charAt(i) - '0') + carry);
+            str += (char) (sum % 10 + '0');
+
+            carry = sum / 10;
+        }
+
+        for (int i = n1; i < n2; i++) {
+            int sum = ((int) (second.charAt(i) - '0') + carry);
+            str += (char) (sum % 10 + '0');
+            carry = sum / 10;
+        }
+
+        if (carry > 0)
+            str += (char) (carry + '0');
+
+        str = new StringBuilder(str).reverse().toString();
+
+        return str;
+
+
+    }
+
+    public void reverse() {
+        for (int i = 0; i < size / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[size - 1 - i];
+            arr[size - 1 - i] = temp;
+        }
+    }
+
+    public void random() {
+        Random rn = new Random();
+
+        for (int i = 0; i < 2 * size; i++) {
+            int a = rn.nextInt(size);
+            int b = rn.nextInt(size);
+            int temp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = temp;
+        }
+
+    }
 }
