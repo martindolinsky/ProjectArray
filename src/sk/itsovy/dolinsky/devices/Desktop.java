@@ -12,6 +12,7 @@ public class Desktop extends Computer {
         this.type = type;
     }
 
+
     public String getType() {
         return type;
     }

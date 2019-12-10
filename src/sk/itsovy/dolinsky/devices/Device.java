@@ -15,4 +15,8 @@ public abstract class Device {
     public String getName() {
         return name;
     }
+
+    public static int getCount() {
+        return count;
+    }
 }

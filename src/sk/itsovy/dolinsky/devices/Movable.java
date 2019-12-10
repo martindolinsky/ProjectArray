@@ -5,5 +5,5 @@ package sk.itsovy.dolinsky.devices;
  */
 public interface Movable {
 
-    public double getDiag();
+    double getDiag();
 }

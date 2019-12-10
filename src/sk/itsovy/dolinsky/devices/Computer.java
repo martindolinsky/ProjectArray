@@ -21,4 +21,5 @@ public class Computer extends Device implements Parameter {
     public int getRam() {
         return ram;
     }
+
 }

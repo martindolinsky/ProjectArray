@@ -5,5 +5,5 @@ package sk.itsovy.dolinsky.devices;
  */
 public interface Parameter {
 
-    public int getRam();
+    int getRam();
 }
